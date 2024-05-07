@@ -1,0 +1,93 @@
+<div class="color-background-1 isolate gradient">
+  <div class="collection section-template--16434846171286__featured-collection-padding">
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width title-wrapper--self-padded-tablet-down">
+      <h2 class="title inline-richtext h2 scroll-trigger animate--slide-in">{{ section.settings.heading }}</h2>
+      {{ section.settings.discription }}
+      <slider-component class="slider-mobile-gutter page-width-desktop scroll-trigger animate--slide-in">
+        <ul class="grid product-grid contains-card contains-card--product grid--4-col-desktop grid--2-col-tablet-down slider slider--tablet grid--peek">
+          {% for block in section.blocks %}
+          <li class="grid__item slider__slide scroll-trigger animate--slide-in">
+            <div class="card-wrapper product-card-wrapper underline-links-hover">
+              <div class="card card--card card--media color-background-1 gradient" style="--ratio-percent: 100%;">
+            <div class="card__inner  ratio" style="--ratio-percent: 100%;">
+              <div class="card__media">
+            <div class="media media--transparent media--hover-effect">
+            {{ block.settings.img | image_url: width: 2048  | image_tag }}
+            </div>
+              </div>
+            </div>
+                <div class="card__content">
+                  <div class="card__information">
+                    <h3 class="card__heading h5">
+                      <a class="full-unstyled-linkfull-unstyled-link">{{ block.settings.title }}</a>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </slider-component>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Services",
+    "tag":"section",
+    "class":"services",
+    "limit":1,
+    "max_blocks":4,
+    "settings": [
+      {
+        "type":"text",
+        "label":"heading of services section",
+        "id":"heading"
+      },
+      {
+        "type":"richtext",
+        "label":"Discription of Services Section",
+        "id":"discription"
+      }
+    ],
+    "blocks":[
+      {
+        "name":"block",
+        "type":"items",
+        "settings":[
+          {
+            "type":"image_picker",
+            "label":"services-item",
+            "id":"img"
+          },
+          {
+            "type":"text",
+            "label":"Title of services Section",
+            "id":"title"
+          }
+        ]
+      }
+    ],
+    "locales":{
+      "en":{
+        "heading":"Services."
+      },
+      "fr":{
+        "heading":"Services"
+      }
+    },
+    "presets":[
+					{
+						"category":"Servicesss",
+						"name":"Services setion"
+					}
+				 ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
